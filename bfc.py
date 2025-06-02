@@ -4,10 +4,14 @@ from sys import argv
 
 src: str
 
+if len(argv) < 3:
+    print("Invalid number of arguments.")
+    exit(1)
+
 with open(argv[1]) as in_file:
     src = in_file.read()
 
-with open("out.s", "w") as out:
+with open(argv[2], "w") as out:
     lc = 0
     ls = []
     out.write("FORMAT ELF64 EXECUTABLE\n")
